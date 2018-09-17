@@ -362,6 +362,9 @@ The supported built-in functions are:
       `n` is the index or name of the subcapture. If using a regular expression,
       the syntax conforms to the [re2 regular expression syntax](https://github.com/google/re2/wiki/Syntax).
 
+  * `reverse(list)` - Returns a reversed version of the list passed as an argument. It may only be used on lists.
+      Examples: `reverse(aws_instance.foo.*.id)`, `reverse(var.list_of_strings)
+
   * `rsadecrypt(string, key)` - Decrypts `string` using RSA. The padding scheme
     PKCS #1 v1.5 is used. The `string` must be base64-encoded. `key` must be an
     RSA private key in PEM format. You may use `file()` to load it from a file.
