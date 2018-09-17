@@ -1061,24 +1061,6 @@ STATE:
 <no state>
 `
 
-const testTerraformPlanComputedStr = `
-DIFF:
-
-CREATE: aws_instance.bar
-  foo:  "" => "<computed>"
-  type: "" => "aws_instance"
-CREATE: aws_instance.foo
-  compute:       "" => "foo"
-  compute_value: "" => "<computed>"
-  foo:           "" => "<computed>"
-  num:           "" => "2"
-  type:          "" => "aws_instance"
-
-STATE:
-
-<no state>
-`
-
 const testTerraformPlanComputedIdStr = `
 DIFF:
 
@@ -1089,47 +1071,6 @@ CREATE: aws_instance.foo
   foo:  "" => "<computed>"
   num:  "" => "2"
   type: "" => "aws_instance"
-
-STATE:
-
-<no state>
-`
-
-const testTerraformPlanComputedListStr = `
-DIFF:
-
-CREATE: aws_instance.bar
-  foo:  "" => "<computed>"
-  list: "" => "<computed>"
-  type: "" => "aws_instance"
-CREATE: aws_instance.foo
-  compute: "" => "list.#"
-  list:    "" => "<computed>"
-  list.#:  "" => "<computed>"
-  num:     "" => "2"
-  type:    "" => "aws_instance"
-
-STATE:
-
-<no state>
-`
-
-const testTerraformPlanComputedMultiIndexStr = `
-DIFF:
-
-CREATE: aws_instance.bar.0
-  foo:  "" => "<computed>"
-  type: "" => "aws_instance"
-CREATE: aws_instance.foo.0
-  compute:       "" => "ip.#"
-  compute_value: "" => "<computed>"
-  ip.#:          "" => "<computed>"
-  type:          "" => "aws_instance"
-CREATE: aws_instance.foo.1
-  compute:       "" => "ip.#"
-  compute_value: "" => "<computed>"
-  ip.#:          "" => "<computed>"
-  type:          "" => "aws_instance"
 
 STATE:
 
@@ -1163,21 +1104,6 @@ STATE:
 <no state>
 `
 
-const testTerraformPlanCountIndexStr = `
-DIFF:
-
-CREATE: aws_instance.foo.0
-  foo:  "" => "0"
-  type: "" => "aws_instance"
-CREATE: aws_instance.foo.1
-  foo:  "" => "1"
-  type: "" => "aws_instance"
-
-STATE:
-
-<no state>
-`
-
 const testTerraformPlanCountIndexZeroStr = `
 DIFF:
 
@@ -1197,39 +1123,6 @@ CREATE: aws_instance.bar
   foo:  "" => "foo"
   type: "" => "aws_instance"
 CREATE: aws_instance.foo.0
-  foo:  "" => "foo"
-  type: "" => "aws_instance"
-
-STATE:
-
-<no state>
-`
-
-const testTerraformPlanCountZeroStr = `
-DIFF:
-
-CREATE: aws_instance.bar
-  foo:  "" => ""
-  type: "" => "aws_instance"
-
-STATE:
-
-<no state>
-`
-
-const testTerraformPlanCountVarStr = `
-DIFF:
-
-CREATE: aws_instance.bar
-  foo:  "" => "foo,foo,foo"
-  type: "" => "aws_instance"
-CREATE: aws_instance.foo.0
-  foo:  "" => "foo"
-  type: "" => "aws_instance"
-CREATE: aws_instance.foo.1
-  foo:  "" => "foo"
-  type: "" => "aws_instance"
-CREATE: aws_instance.foo.2
   foo:  "" => "foo"
   type: "" => "aws_instance"
 
